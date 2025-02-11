@@ -1,32 +1,32 @@
-1. Çàïóñê:
+1. Launch:
 
-	Çàïóñòèòè bin\Debug\net8.0\puzzles.exe
+Run bin\Debug\net8.0\puzzles.exe
 
-	Àáî â³äêðèòè ÿê ïðîºêò puzzles.sln.
+Or open as a project using puzzles.sln.
 
-	Âõ³äíèé ôàéë "source.txt" ïîâèíåí áóòè ïîðó÷ ç "puzzles.exe"
+The input file "source.txt" should be located next to "puzzles.exe".
 
-2. Ìîæëèâ³ íàëàøòóâàííÿ:
+2. Possible Settings:
 
-	ßêùî â³äîìà ïðèáëèçíà ê³ëüê³ñòü ïàçë³â, ÿê³ ìîæíà ñêëàñòè ç íàáîðó, ¿¿ ìîæíà çàäàòè äëÿ ïðèøâèäøåííÿ ïîøóêó (Set searchable depth).
+If the approximate number of puzzles that can be assembled from the set is known, it can be set to speed up the search (Set searchable depth).
 
-	Ç ïîòî÷íîãî ôàéëó ìàêñèìóì — 67.
+The maximum from the current file is 67.
 
-	Íàïðÿìîê "ñïðàâà íàë³âî" çàäàíèé ÿê ñòàíäàðòíå çíà÷åííÿ, â äàíîìó âèïàäêó ïðàöþý øâèäøå.
+The direction "right to left" is set as the default value, and in this case, it works faster.
 
-3. Êîðîòêèé îïèñ:
+3. Brief Description:
 
-	Äëÿ ñòðóêòóðèçàö³¿ âèêîðèñòîâóºòüñÿ çâ’ÿçíèé ñïèñîê, ó êîæí³é éîãî íîä³ ì³ñòèòüñÿ ïàçë.
+A linked list is used for structuring, with each node containing a puzzle.
 
-	Êîæíîãî ðàçó ÿê ïî÷àòêîâèé ïàçë âèêîðèñòîâóºòüñÿ íàñòóïíèé ³ç ñïèñêó.
+Each time, the next puzzle from the list is used as the starting puzzle.
 
-	Àëãîðèòì áóäóº äåðåâî çà äîïîìîãîþ ðåêóðñèâíî¿ ôóíêö³¿. Ó âèïàäêàõ ðîçãàëóæåíü, êîëè ìîæíà ï³äñòàâèòè äåê³ëüêà âàð³àíò³â, ñòâîðþºòüñÿ äîäàòêîâà àëüòåðíàòèâíà ã³ëêà, ÿêà ïðîäîâæóº ïîáóäîâó.
+The algorithm builds the tree using a recursive function. In cases of branching, when multiple options can be placed, an additional alternative branch is created to continue the construction.
 
-	Äëÿ ïîøóêó íàéäîâøî¿ ã³ëêè â äåðåâ³ âèêîðèñòîâóºòüñÿ òàêîæ ðåêóðñèâíà ôóíêö³ÿ, ÿêà ïîâåðòàº íàéäîâøó ïîñë³äîâí³ñòü.
+To find the longest branch in the tree, a recursive function is also used, which returns the longest sequence.
 
-	Ïðè çíàõîäæåíí³ íàéäîâøîãî âàð³àíòó ñåðåä äåðåâ ïîñë³äîâí³ñòü çáåð³ãàºòüñÿ, ïîêè íå çíàéäåòüñÿ äîâøà.
+When the longest variant among the trees is found, the sequence is stored until a longer one is found.
 
-4. Ðåçóëüòàò:
+4. Result:
 	
 	Depth: 1 - 71 68 90
 	Depth: 2 - 90 56 57
